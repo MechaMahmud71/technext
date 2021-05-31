@@ -1,12 +1,15 @@
 import React from 'react'
+import {Link,useParams} from "react-router-dom";
 
 function Post({value}) {
-  console.log(value)
+  const {id}=useParams();
+  // console.log(id)
   return (
+
     <div>
-      <div>{value.id}</div>
-      <div>{value.title}</div>
-      <div>{value.body}</div>
+      <h1>{value.title}</h1>
+      <p>{value.body}</p>
+      {id? null: <Link to={`/post/${value.id}`}>See Details</Link>}
       <br/>
     </div>
   )
