@@ -7,7 +7,7 @@ import {getPost} from "../api/getPost";
 const AddPost = () => {
   
   const {id}=useParams();
-  const [post,setPost]=useState({});
+  
   const [formData,setFormData]=useState({
     id:0,
     title:"",
@@ -32,8 +32,6 @@ const AddPost = () => {
 
   const getSinglePost=async()=>{
     const singlePost=await getPost(id);
-    
-    setPost(singlePost);
     setFormData({
       id:singlePost.id,
       title:singlePost.title,
