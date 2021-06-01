@@ -8,3 +8,12 @@ export const getPosts=async(URL)=>{
     console.log("error in fetching data")
   }
 }
+
+export const getPost=async(id)=>{
+  try {
+    const {data}=await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    return data;
+  } catch (error) {
+    console.log(error)
+  }
+}

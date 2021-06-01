@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard';
 import FullPost from './components/FullPost';
 import Nav from "./components/Nav";
 import Profile from './components/Profile';
+import AddPost from './components/AddPost';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import {useEffect,useReducer } from 'react';
 import axios from "axios";
@@ -57,6 +58,15 @@ function App() {
               </Route>
               <Route exact path="/profile">
                 <Profile/>
+              </Route>
+              <Route exact path="/user/:id">
+                <Profile/>
+              </Route>
+              <Route exact path="/add-post">
+                <AddPost/>
+              </Route>
+              <Route exact path="/edit-post/:id">
+                <AddPost/>
               </Route>
             </Switch>
           </Router>

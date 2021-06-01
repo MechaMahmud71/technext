@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Post from './Post';
 import Comment from './Comment';
+import {getPost} from "../api/getPost";
 
 function FullPost() {
   const {id}=useParams();
@@ -10,32 +11,27 @@ function FullPost() {
   const [comment,setComment]=useState([]);
   
   useEffect(()=>{
-    getPost();
+    getSinglePost();
     getCommnet();
   },[])
 
-  const getPost=async()=>{
-    try {
-      const {data}=await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      // console.log(data)
-      setPost(data);
-    } catch (error) {
-      console.log(error)
-    }
+  const getSinglePost=async()=>{
+    const singlePost=await getPost(id);
+    setPost(singlePost);
   }
 
   const getCommnet=async()=>{
     try {
       const {data}= await axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${id}`);
-      // console.log(data)
+      
       setComment(data)
     } catch (error) {
       console.log(error)
     }
   }
-  // console.log(comment)
+  
   const comments=comment.map((el,index)=><Comment value={el} key={index}/>)
-  // console.log(comments)
+  
   return (
     <div className="container">
       <Post value={post}/>
