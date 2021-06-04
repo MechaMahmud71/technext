@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom';
 import Post from './Post';
 import Comment from './Comment';
 import {getPost} from "../api/getPost";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function FullPost() {
+const FullPost=()=> {
   const {id}=useParams();
   const [post,setPost]=useState({});
   const [comment,setComment]=useState([]);
@@ -26,7 +28,7 @@ function FullPost() {
       
       setComment(data)
     } catch (error) {
-      console.log(error)
+      toast.error("Sorry! Comments can not be fetched!")
     }
   }
   
@@ -34,6 +36,7 @@ function FullPost() {
   
   return (
     <div className="container">
+      <ToastContainer/>
       <Post value={post}/>
       {comments}
     </div>

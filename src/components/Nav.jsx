@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import "../styles/Nav.scss"
 
-function Nav() {
+const Nav=()=> {
   return (
-    <div>
+    <div className="nav-container">
       <NavLink to="/">Dashboard</NavLink>
       <NavLink to="/profile">Profile</NavLink>
       <NavLink to="/add-post">Add A Post</NavLink>

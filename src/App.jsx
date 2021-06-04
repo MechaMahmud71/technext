@@ -5,12 +5,13 @@ import FullPost from './components/FullPost';
 import Nav from "./components/Nav";
 import Profile from './components/Profile';
 import AddPost from './components/AddPost';
+
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import {useEffect,useReducer } from 'react';
 import axios from "axios";
 
 
-import { initialState,reducer } from './components/reducers/Reducer';
+import { initialState,reducer } from './reducers/Reducer';
 
 
 export const ProfileContext=React.createContext();
@@ -68,6 +69,7 @@ function App() {
               <Route exact path="/edit-post/:id">
                 <AddPost/>
               </Route>
+              
             </Switch>
           </Router>
         

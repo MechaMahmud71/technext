@@ -1,24 +1,27 @@
 import axios from 'axios';
 import React,{useContext} from 'react'
 import {Link,useParams} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {ProfileContext} from "../App";
 
-function Post({value}) {
+const Post=({value})=> {
   const {id}=useParams();
   const profile=useContext(ProfileContext);
   
   const deletePost=async()=>{
     try {
       await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      console.log("post is deleted")
+      toast.success("The Post is deleted");
     } catch (error) {
-      console.log(error)
+      toast.error("Sorry! The post is not deleted");
     }
   }
   
   return (
 
     <div>
+      <ToastContainer/>
       <h1>{value.title}</h1>
       <p>{value.body}</p>
       {id? null: <Link to={`/post/${value.id}`}>See Details</Link>}

@@ -1,10 +1,11 @@
 import React, { useState,useEffect } from 'react';
 import Post from './Post';
-import "../styles/Dashboard.css"
+import "../styles/Dashboard.scss"
 import { getPosts } from '../api/getPost';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-function Dashboard() {
+const Dashboard=()=> {
   
   const [posts,setPosts]=useState([]);
   const [visible,setVisible]=useState(10);
@@ -17,8 +18,12 @@ function Dashboard() {
   },[])
 
   const getAllPosts=async()=>{
-    const userPosts=await getPosts(URL);
-    setPosts(userPosts);
+    try {
+      const userPosts=await getPosts(URL);
+      setPosts(userPosts);
+    } catch (error) {
+        toast.error("Sorry! Posts can not be fetched!")
+    }
   }
   
   const loadMore=()=>{
@@ -32,6 +37,7 @@ function Dashboard() {
   
   return (
     <div className="container">
+      <ToastContainer/>
       {mappedPost}
       <button className="btn-loadMore" onClick={loadMore}>Load More</button>
     </div>

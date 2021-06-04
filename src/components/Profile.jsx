@@ -3,6 +3,8 @@ import Post from './Post';
 import { getPosts } from '../api/getPost';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
  const Profile = () => {
   const [posts,setPosts]=useState([]);
@@ -26,7 +28,7 @@ import axios from 'axios';
       // console.log(data)
       setPorfile(data)
     } catch (error) {
-      console.log(error)
+      toast.error("Sorrt! Porfile is not fetched");
     }
   }
 
@@ -42,6 +44,7 @@ import axios from 'axios';
 
   return (
     <div>
+      <ToastContainer/>
       {profile.name}
       {mappedPost}
     </div>
