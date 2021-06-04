@@ -10,7 +10,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import {useEffect,useReducer } from 'react';
 import axios from "axios";
 
-
+import "./App.scss";
 import { initialState,reducer } from './reducers/Reducer';
 
 

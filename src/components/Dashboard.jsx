@@ -36,10 +36,13 @@ const Dashboard=()=> {
   
   
   return (
-    <div className="container">
+    <div className="dashboard">
       <ToastContainer/>
-      {mappedPost}
-      <button className="btn-loadMore" onClick={loadMore}>Load More</button>
+      <div className="container">
+        {mappedPost}
+        <button className="btn-loadMore" onClick={loadMore}>Load More</button>
+      </div>
+     
     </div>
   )
 }

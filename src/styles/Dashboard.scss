@@ -1,4 +1,7 @@
+@import "./partials/light";
+
 .container{
   width: 80%;
   margin: auto;
+  background: $body-bg-color;
 }
