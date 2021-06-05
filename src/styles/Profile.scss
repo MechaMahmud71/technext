@@ -1,0 +1,63 @@
+@import "./partials/variabls";
+
+.profile-container{
+  background: $profile-hero-color;
+  min-height: 300px;
+  color: $profile-secondary-hero-text;
+  text-align: center;
+  border-bottom: 5px solid $nav-bg-color;
+}
+
+.upper{
+  margin: auto;
+  width: auto;
+  display: grid;
+  place-items: center;
+
+  .profile-name{
+    font-size: 5rem;
+    padding:50px;
+    font-weight: 600;
+  }
+}
+
+.lower{
+  width: 300px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile-email,.profile-phone,.profile-website{
+  text-align: left;
+  font-size: 2rem;
+  margin-left: 20px;
+  .span-text{
+    padding-left: 10px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  
+  .upper{
+    .profile-name{
+      font-size: 4rem;
+      padding:40px;
+      
+    }
+  }
+
+  .profile-email,.profile-phone,.profile-website{
+    
+    font-size: 1.8rem;
+    margin-left: 30px;
+    .span-text{
+      padding-left: 10px;
+    }
+  }
+  
+  
+}
+

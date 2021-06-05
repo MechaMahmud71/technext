@@ -1,0 +1,66 @@
+@import "./partials/variabls";
+
+.users-container{
+  width: 70%;
+  min-width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.search-input,select{
+  max-width: 100%;
+  width: 500px;
+  margin: auto;
+  padding: 15px 30px;
+  border:3px solid $nav-bg-color;
+  border-radius: 5px;
+  color:$post-body-color;
+  font-weight: 600;
+  outline: none;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  
+  &:focus{
+    border: 3px solid $nav-bg-color;
+  }
+
+  &::placeholder{
+    color: $post-body-color;
+  }
+}
+.select-divs{
+  max-width: 100%;
+  display: flex;
+  width: 520px;
+  margin: auto;
+}
+select{
+  padding: 10px 30px;
+  width: 240px;
+}
+
+.user-table{
+  max-width: 100%;
+  width: 500px;
+  margin: auto;
+}
+
+thead{
+  border-collapse: collapse;
+  tr{
+    th{
+      text-align: left;
+      border:3px solid black;
+      padding: 8px 8px;
+      font-size: 1.7rem;
+
+      &:nth-child(1){
+        border-right: none;
+      }
+    }
+  }
+}
+

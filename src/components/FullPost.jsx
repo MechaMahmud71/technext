@@ -13,16 +13,16 @@ const FullPost=()=> {
   const [comment,setComment]=useState([]);
   
   useEffect(()=>{
-    getSinglePost();
-    getCommnet();
-  },[])
+    getSinglePost(id);
+    getCommnet(id);
+  },[id])
 
-  const getSinglePost=async()=>{
+  const getSinglePost=async(id)=>{
     const singlePost=await getPost(id);
     setPost(singlePost);
   }
 
-  const getCommnet=async()=>{
+  const getCommnet=async(id)=>{
     try {
       const {data}= await axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${id}`);
       
@@ -37,7 +37,7 @@ const FullPost=()=> {
   return (
     <div className="container">
       <ToastContainer/>
-      <Post value={post}/>
+      <Post fullPost={true} value={post}/>
       {comments}
     </div>
   )

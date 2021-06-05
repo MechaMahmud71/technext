@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Pagination from './Pagination';
+import "../styles/Users.scss";
 
 const Users=()=> {
   let [users,setUsers]=useState([]);
@@ -40,29 +41,31 @@ const Users=()=> {
 
 
    users=users.filter((el)=>{
+    let value;
     if(searchString===""){
-      return el;
+      value= el;
     }
     else if(el.name.toLowerCase().includes(searchString.toLowerCase())){
-      return el;
+      value=el;
     }
+    return value;
   })
 
   let sortedUsers = users.slice(0);
   
- sortedUsers.sort(function(a,b) {
-    let x,y
-    if(sort==='asc'){
-      x = a.name.toLowerCase();
-      y = b.name.toLowerCase();
-    }
-    if(sort==="dsc"){
-      x = a.email.toLowerCase();
-      y = b.email.toLowerCase();
-    }
-   
-    return x < y ? -1 : x > y ? 1 : 0;
-  });
+  sortedUsers.sort(function(a,b) {
+      let x,y
+      if(sort==='asc'){
+        x = a.name.toLowerCase();
+        y = b.name.toLowerCase();
+      }
+      if(sort==="dsc"){
+        x = a.email.toLowerCase();
+        y = b.email.toLowerCase();
+      }
+    
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -76,22 +79,24 @@ const Users=()=> {
   
   return (
     <>
-      <div>
-        <input type="text" onChange={search} value={searchString} />
+      <div className="users-container">
+        <input type="text" onChange={search} value={searchString}  className="search-input" placeholder="Search Users By Name..."/>
         <ToastContainer/>
-        <select value={sort} onChange={getSort}>
-          <option value="normal">Normal</option>
-          <option value="asc" >Asceding</option>
-          <option value="dsc">Dscending</option>
-        </select>
+        <div className="select-divs">
+          <select value={sort} onChange={getSort}>
+            <option value="normal">Normal</option>
+            <option value="asc" >Asceding</option>
+            <option value="dsc">Dscending</option>
+          </select>
 
-        <select value={usersPerPage} onChange={setPagination}>
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="10">All</option>
-        </select>
+          <select value={usersPerPage} onChange={setPagination}>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">All</option>
+          </select>
+        </div>
       </div>
-      <table>
+      <table className="user-table">
         <thead>
           <tr>
             <th>Name</th>

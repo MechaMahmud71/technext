@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {getPost} from "../api/getPost";
+import "../styles/AddPost.scss";
 
 const AddPost = () => {
   
@@ -27,11 +28,11 @@ const AddPost = () => {
   
   useEffect(()=>{
     if(id){
-      getSinglePost();
+      getSinglePost(id);
     }
   },[id])
 
-  const getSinglePost=async()=>{
+  const getSinglePost=async(id)=>{
     const singlePost=await getPost(id);
     setFormData({
       id:singlePost.id,
@@ -68,10 +69,10 @@ const AddPost = () => {
   }
   
   return (
-    <div>
+    <div className="add-post-container">
       <ToastContainer />
-      <textarea name="title" cols="30" rows="10" onChange={handelChange} value={title}></textarea>
-      <textarea name="body" cols="30" rows="10"onChange={handelChange} value={body}></textarea>
+      <textarea name="title" className="title-textarea" onChange={handelChange} value={title} placeholder="Title.."></textarea>
+      <textarea name="body" className="body-textarea" onChange={handelChange} value={body} placeholder="Whats on your MIND...."></textarea>
       {id?(
         <button className="btn-sumbit-post" onClick={editPost}>Edit Post</button>
       ):(

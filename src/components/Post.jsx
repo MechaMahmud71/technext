@@ -4,8 +4,9 @@ import {Link,useParams} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {ProfileContext} from "../App";
+import "../styles/Post.scss";
 
-const Post=({value})=> {
+const Post=({value,fullPost})=> {
   const {id}=useParams();
   const profile=useContext(ProfileContext);
   
@@ -20,18 +21,24 @@ const Post=({value})=> {
   
   return (
 
-    <div>
+    <div className="post-container">
       <ToastContainer/>
-      <h1>{value.title}</h1>
-      <p>{value.body}</p>
-      {id? null: <Link to={`/post/${value.id}`}>See Details</Link>}
-      {profile.id===value.userId?(
-        <>
-          <Link to={`/edit-post/${value.id}`}><i className="fas fa-pencil-alt"></i></Link>
+      <h1 className="post-title">{value.title}</h1>
+      <p className="post-body">{value.body}</p>
+      
+      {fullPost? null:
+       (
+        <div className="link-container">
+       <Link className="post-details-link" to={`/post/${value.id}`}>See Details</Link>
+        </div>
+       )}
+        {profile.id===value.userId?(
+        <div className="edit-delete-container">
+          <Link className="post-edit-link" to={`/edit-post/${value.id}`}><i className="fas fa-edit"></i></Link>
           <button onClick={deletePost} className="btn-delete-btn"><i className="far fa-trash-alt"></i></button>
-        </>
+        </div>
       ):null}
-      <br/>
+
     </div>
   )
 }

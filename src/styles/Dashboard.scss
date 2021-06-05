@@ -1,7 +1,16 @@
-@import "./partials/light";
+@import "./partials/variabls";
 
 .container{
   width: 80%;
   margin: auto;
   background: $body-bg-color;
+}
+
+
+@media screen and (max-width: 480px) {
+  
+  .container{
+    width: 100%;
+  }
+  
 }
