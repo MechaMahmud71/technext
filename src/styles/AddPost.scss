@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  height: 76vh;
 }
 
 .title-textarea{
@@ -39,6 +40,7 @@
   border: 3px solid $nav-bg-color;
   border-radius: 5px;
   margin-bottom: 30px;
+  outline: auto;
 
   &:focus{
     border: 3px solid $nav-bg-color;
@@ -63,5 +65,25 @@
 
   &:hover{
     background-color:$post-button-primary-hover-bg-color;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  
+  .title-textarea,.body-textarea{
+    font-size: 1.3rem;
+    padding:7px 15px;
+    border: 2px solid $nav-bg-color;
+  }
+
+  .title-textarea{
+    &:focus{
+      border: 2px solid $nav-bg-color;
+    }
+  }
+  .body-textarea{
+    &:focus{
+      border: 2px solid $nav-bg-color;
+    }
   }
 }

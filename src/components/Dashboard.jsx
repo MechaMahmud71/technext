@@ -9,6 +9,7 @@ const Dashboard=()=> {
   
   const [posts,setPosts]=useState([]);
   const [visible,setVisible]=useState(10);
+  const [loading,setLoading]=useState(true);
   
   const URL='https://jsonplaceholder.typicode.com/posts';
   
@@ -21,8 +22,9 @@ const Dashboard=()=> {
     try {
       const userPosts=await getPosts(URL);
       setPosts(userPosts);
+      setLoading(false);
     } catch (error) {
-        toast.error("Sorry! Posts can not be fetched!")
+      toast.error("Sorry! Posts can not be fetched!")
     }
   }
   
@@ -30,19 +32,26 @@ const Dashboard=()=> {
     setVisible((previousValue)=>previousValue+10)
   }
 
- 
+  if(loading){
+    return(
+      <div className="loading-container">
+        <div className="loader"></div>
+      </div>
+    )
+  }
 
   const mappedPost=posts.slice(0,visible).map((el,index)=><Post value={el} key={index+1}/>)
   
   
   return (
     <div className="dashboard">
-      <ToastContainer/>
+      <ToastContainer style={{fontSize:"1.5rem"}}/>
       <div className="container">
         {mappedPost}
+        <div className="loadmore-btn-container">
         <button className="btn-loadMore" onClick={loadMore}>Load More</button>
+        </div>
       </div>
-     
     </div>
   )
 }

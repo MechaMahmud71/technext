@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import "../styles/Comments.scss";
 
 const Comment=({value})=> {
   return (
-    <div>
-      <div>{value.email}</div>
-      <div>{value.body}</div>
+    <div className="comment-container">
+      <div className="user-email">{value.email}</div>
+      <div className="user-comment">{value.body}</div>
     </div>
   )
 }

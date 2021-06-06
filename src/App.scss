@@ -1,1 +1,11 @@
+@import "./styles/partials/variabls";
 
+.footer{
+  text-align:center;
+  width: 100%;
+  padding: 20px;
+  background-color: $post-title-color;
+  color: $nav-text-color;
+  font-size: 2rem;
+  font-weight: 600;
+}

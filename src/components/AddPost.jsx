@@ -70,7 +70,8 @@ const AddPost = () => {
   
   return (
     <div className="add-post-container">
-      <ToastContainer />
+      
+      <ToastContainer style={{fontSize:"1.5rem"}}/>
       <textarea name="title" className="title-textarea" onChange={handelChange} value={title} placeholder="Title.."></textarea>
       <textarea name="body" className="body-textarea" onChange={handelChange} value={body} placeholder="Whats on your MIND...."></textarea>
       {id?(

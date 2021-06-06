@@ -12,7 +12,7 @@
 
 .search-input,select{
   max-width: 100%;
-  width: 500px;
+  width: 520px;
   margin: auto;
   padding: 15px 30px;
   border:3px solid $nav-bg-color;
@@ -32,35 +32,110 @@
   }
 }
 .select-divs{
-  max-width: 100%;
   display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  
   width: 520px;
   margin: auto;
 }
 select{
-  padding: 10px 30px;
+  padding: 10px 20px;
   width: 240px;
+  margin: 10px 0px;
+  margin-bottom: 20px;
+}
+
+select:nth-child(4){
+  font-size: 1.3rem;
+  width: 65px;
+  padding:7px;
+}
+
+.sort-title{
+  color: $post-title-color;
 }
 
 .user-table{
-  max-width: 100%;
-  width: 500px;
+  max-width: 95%;
+  width: 700px;
   margin: auto;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 3px solid $nav-bg-color;
+  border-collapse: collapse;
+  
 }
 
 thead{
-  border-collapse: collapse;
   tr{
-    th{
-      text-align: left;
-      border:3px solid black;
-      padding: 8px 8px;
-      font-size: 1.7rem;
+    background:$profile-hero-color;
+    color: $nav-text-color;
+  }
 
-      &:nth-child(1){
-        border-right: none;
-      }
+  
+
+}
+
+tbody{
+  tr{
+    background:$nav-text-color;
+    font-weight: 500;
+    transition: 0.3s;
+    .user-name-link{
+      text-decoration: none;
+      color: black;
+      
+    }
+
+    &:hover{
+      background-color:$body-bg-color;
     }
   }
+
+  td:nth-child(1){
+    font-weight: 600;
+    
+  }
 }
+
+th,td{
+  padding: 10px 40px;
+  font-size: 1.7rem;
+  
+}
+
+@media screen and (max-width: 610px) {
+  
+  .search-input,select{
+    border:2px solid $nav-bg-color;
+    padding: 8px 15px;
+    font-size: 1.3rem;
+    
+  }
+  .sort-title{
+    font-size: 1.5rem;
+  }
+  select{
+    padding: 5px 3px;
+    width: 100px;
+    margin-left:0px;
+  }
+
+  table, th, td {
+    border: 2px solid $nav-bg-color;
+    
+    
+  }
+
+  th,td{
+    padding: 5px 2px;
+    font-size: 1.1rem;
+    
+  }
+  
+}
+
 

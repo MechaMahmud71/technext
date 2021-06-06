@@ -7,7 +7,7 @@ import Profile from './components/Profile';
 import AddPost from './components/AddPost';
 
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
-import {useEffect,useReducer } from 'react';
+import {useEffect,useReducer,useState } from 'react';
 import axios from "axios";
 
 import "./App.scss";
@@ -19,6 +19,7 @@ export const ProfileContext=React.createContext();
 function App() {
   
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [loading,setLoading]=useState(true);
   
   useEffect(()=>{
     getProfile();
@@ -30,13 +31,21 @@ function App() {
   const getProfile=async()=>{
     try {
       const {data}= await axios.get(`https://jsonplaceholder.typicode.com/users/2`);
-      // console.log(data)
+      setLoading(false);
       dispatch({type:"FETCH_SUCCESS",payload:data})
     } catch (error) {
+      setLoading(true);
       dispatch({ type: 'FETCH_ERROR' })
     }
   }
 
+  if(loading){
+    return(
+      <div className="loading-container">
+        <div className="loader"></div>
+      </div>
+    )
+  }
 
  
   return (
@@ -71,6 +80,7 @@ function App() {
               </Route>
               
             </Switch>
+            
           </Router>
         
       </ProfileContext.Provider>
