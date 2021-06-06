@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/technext/static/css/main.fe2399d6.chunk.css",
+    "main.js": "/technext/static/js/main.64d587cc.chunk.js",
+    "main.js.map": "/technext/static/js/main.64d587cc.chunk.js.map",
+    "runtime-main.js": "/technext/static/js/runtime-main.3066ae89.js",
+    "runtime-main.js.map": "/technext/static/js/runtime-main.3066ae89.js.map",
+    "static/css/2.c55f41dc.chunk.css": "/technext/static/css/2.c55f41dc.chunk.css",
+    "static/js/2.f33cd4b8.chunk.js": "/technext/static/js/2.f33cd4b8.chunk.js",
+    "static/js/2.f33cd4b8.chunk.js.map": "/technext/static/js/2.f33cd4b8.chunk.js.map",
+    "static/js/3.f98d0c18.chunk.js": "/technext/static/js/3.f98d0c18.chunk.js",
+    "static/js/3.f98d0c18.chunk.js.map": "/technext/static/js/3.f98d0c18.chunk.js.map",
+    "index.html": "/technext/index.html",
+    "static/css/2.c55f41dc.chunk.css.map": "/technext/static/css/2.c55f41dc.chunk.css.map",
+    "static/css/main.fe2399d6.chunk.css.map": "/technext/static/css/main.fe2399d6.chunk.css.map",
+    "static/js/2.f33cd4b8.chunk.js.LICENSE.txt": "/technext/static/js/2.f33cd4b8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3066ae89.js",
+    "static/css/2.c55f41dc.chunk.css",
+    "static/js/2.f33cd4b8.chunk.js",
+    "static/css/main.fe2399d6.chunk.css",
+    "static/js/main.64d587cc.chunk.js"
+  ]
+}
